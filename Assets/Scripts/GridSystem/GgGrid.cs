@@ -6,6 +6,6 @@ namespace GridSystem
     {
         public int GridSize;
         public List<Tile> Tiles;
-        
+        public Tile[][] Tiles2;
     }
 }

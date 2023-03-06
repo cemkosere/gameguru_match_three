@@ -24,7 +24,6 @@ namespace Managers
         {
             CurrentGrid = GridCreator.CreateGrid(gridSize, tilePrefab, gridParent);
             Camera.main.OrthographicFitter(gridSize);
-
         }
     }
 }

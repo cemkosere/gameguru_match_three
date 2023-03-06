@@ -10,15 +10,16 @@ namespace GridSystem
             var initialX = -(size - 1) / 2f;
             var initialY = (size - 1) / 2f;
 
-            var grid = new GgGrid()
+            var grid = new GgGrid
             {
                 GridSize = size,
-                Tiles = new List<Tile>()
+                Tiles = new List<Tile>(),
+                Tiles2 = new Tile[size][]
             };
-
 
             for (var i = 0; i < size; i++)
             {
+                grid.Tiles2[i] = new Tile[size];
                 for (var j = 0; j < size; j++)
                 {
                     var x = initialX + j;
@@ -26,6 +27,7 @@ namespace GridSystem
                     var z = 0;
                     var insTile = Object.Instantiate(tilePrefab, new Vector3(x, y, z), Quaternion.identity, parent);
                     grid.Tiles.Add(insTile);
+                    grid.Tiles2[i][j] = insTile;
                 }
             }
             return grid;
