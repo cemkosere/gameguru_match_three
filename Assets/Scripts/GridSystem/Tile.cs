@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace GridSystem
@@ -11,11 +10,9 @@ namespace GridSystem
         
         [SerializeField] private GameObject selectIcon;
         
-        
-
         public void Initialize(Vector2Int index)
         {
-            this.Index = index;
+            Index = index;
         }
         private void OnMouseDown()
         {
@@ -29,8 +26,6 @@ namespace GridSystem
             }
         }
 
-        
-        
         #region ISelectable
         public bool IsSelected { get; set; }
         public void Select()
