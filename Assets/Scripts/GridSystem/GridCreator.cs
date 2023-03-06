@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GridSystem
 {
@@ -13,24 +12,24 @@ namespace GridSystem
             var grid = new GgGrid
             {
                 GridSize = size,
-                Tiles = new List<Tile>(),
-                Tiles2 = new Tile[size][]
+                Tiles = new Tile[size,size],
             };
 
             for (var i = 0; i < size; i++)
             {
-                grid.Tiles2[i] = new Tile[size];
                 for (var j = 0; j < size; j++)
                 {
                     var x = initialX + j;
                     var y = initialY - i;
                     var z = 0;
                     var insTile = Object.Instantiate(tilePrefab, new Vector3(x, y, z), Quaternion.identity, parent);
-                    grid.Tiles.Add(insTile);
-                    grid.Tiles2[i][j] = insTile;
+                    grid.Tiles[i, j] = insTile;
+                    insTile.Initialize(new Vector2Int(i,j));
                 }
             }
             return grid;
         }
+        
+        
     }
 }
